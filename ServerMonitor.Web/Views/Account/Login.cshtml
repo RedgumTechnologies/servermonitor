@@ -1,0 +1,39 @@
+﻿@model ServerMonitor.Web.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-signin" }))
+{
+    @Html.AntiForgeryToken()
+    if (!Html.ViewData.ModelState.IsValid)
+    {
+    <div class="alert alert-warning">@Html.ValidationSummary(true)</div>
+    }
+    else
+    { 
+    <div class="alert alert-info">Please enter your username and password</div>
+    }
+    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Username", autofocus = "autofocus" })
+     
+    
+    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })
+    
+    <input class="btn  btn-primary btn-block" type="submit" value="Log in" />
+    
+    @*<label class="checkbox inline">@Html.CheckBoxFor(m => m.RememberMe) Remember Me?</label>*@
+    @* Not sure if we ever want this
+        <p>
+            @Html.ActionLink("Register", "Register") if you don't have an account.
+        </p>*@
+    @*<p>If you have forgotten your password you can @Html.ActionLink("click here to reset your password", "RequestResetPassword").</p>*@
+}
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

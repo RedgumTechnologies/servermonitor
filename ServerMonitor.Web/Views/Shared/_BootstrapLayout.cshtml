@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title - Server Monitor</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Redgum Technologies">
+    <!-- Bootstrap -->
+    <!-- Le styles -->
+    @Styles.Render("~/Content/bootstrap/bootstrap.min.css", "~/Content/bootstrap/bootstrap-theme.min.css")
+    @Styles.Render("~/Content/site.min.css")
+
+    <link rel="shortcut icon" href="@Url.Content("~/Content/favicon.ico")">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    @RenderSection("head", required: false)
+    <!-- Developed with love by Redgum Technologies http://redgum.com.au/ -->
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Server Monitor", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "navbar-brand" })
+            </div>
+            <div class="collapse navbar-collapse pull-right">
+                <ul class="nav navbar-nav">
+
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Servers", "Index", "Server")</li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>@ViewBag.Title</h1>
+        </div>
+        @RenderSection("featured", required: false)
+
+        @RenderBody()
+        <hr />
+
+        <div class="footer">
+            <span class="pull-right">Build @ViewBag.VersionString</span>
+            <p>&copy; Redgum Technologies Pty Ltd @DateTime.Now.Year.ToString()</p>
+
+        </div>
+
+    </div>
+    <!-- /container -->
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    @Scripts.Render("~/bundles/jquery", "~/Scripts/bootstrap.min.js")
+    @RenderSection("scripts", required: false)
+
+    <!-- Build version: @ViewBag.VersionString -->
+</body>
+</html>
+
