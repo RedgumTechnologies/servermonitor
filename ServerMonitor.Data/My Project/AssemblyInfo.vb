@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("ServerMonitor.Data")>
-<Assembly: AssemblyCopyright("Copyright © Redgum Technologies Pty Ltd 2017")>
+<Assembly: AssemblyCopyright("Copyright © Redgum Technologies Pty Ltd, Matt White, Lucas Sherwood 2017")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

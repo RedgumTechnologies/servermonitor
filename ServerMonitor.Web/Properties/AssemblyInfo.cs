@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ServerMonitor.Web")]
-[assembly: AssemblyCopyright("Copyright © Redgum Technologies Pty Ltd 2017")]
+[assembly: AssemblyCopyright("Copyright © Redgum Technologies Pty Ltd, Matt White, Lucas Sherwood 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
